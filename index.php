@@ -1,7 +1,6 @@
 <?php
 include 'db.php';
 
-// Handle Form Submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -9,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST["address"];
     $details = $_POST["details"];
 
-    // File Upload Handling
+    
     $targetDir = "uploads/";
     $fileName = basename($_FILES["image"]["name"]);
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
-    // Allowed file types
+    
     $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
 
     if (in_array($fileType, $allowedTypes)) {
